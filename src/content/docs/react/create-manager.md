@@ -15,7 +15,7 @@ import { createSafeContext } from './createSafeContext';
 export function createManager<T>(
   useController: () => T,
   renderOwn?: (value: T) => ReactNode,
-  displayName?: string,
+  displayName?: string
 ) {
   const [Context, useCtx] = createSafeContext<T>(displayName ?? 'Manager');
 
@@ -59,7 +59,11 @@ With the utility — simple manager:
 
 ```tsx
 // ReportMng/ReportMng.tsx
-export const [ReportMng, useReportMng] = createManager(useController, undefined, 'ReportMng');
+export const [ReportMng, useReportMng] = createManager(
+  useController,
+  undefined,
+  'ReportMng'
+);
 ```
 
 With the utility — manager with its own UI:

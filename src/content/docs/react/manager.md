@@ -39,7 +39,7 @@ export function useController() {
   const [items, setItems] = useState<TReportItem[]>([]);
 
   function addItem(item: TReportItem) {
-    setItems(prev => [...prev, item]);
+    setItems((prev) => [...prev, item]);
   }
 
   return { items, addItem };
@@ -77,13 +77,13 @@ export function ReportMng({ children }: { children: ReactNode }) {
 
 A manager is always a composite entity. If the logic is too simple, it is a hook or `context.ts`, not a manager.
 
-| Situation | Solution |
-|-----------|----------|
-| State is needed only in one component | Local `useState` / `useReducer` |
-| Need to pass data without drilling, logic is simple | `context.ts` + hook at the parent |
-| There is business logic, several call sources | Manager |
-| UI is needed above the tree (toasts, modals, overlays) | Manager with `renderOwn` |
-| Need time-travel, advanced devtools | Redux / Zustand |
+| Situation                                              | Solution                          |
+| ------------------------------------------------------ | --------------------------------- |
+| State is needed only in one component                  | Local `useState` / `useReducer`   |
+| Need to pass data without drilling, logic is simple    | `context.ts` + hook at the parent |
+| There is business logic, several call sources          | Manager                           |
+| UI is needed above the tree (toasts, modals, overlays) | Manager with `renderOwn`          |
+| Need time-travel, advanced devtools                    | Redux / Zustand                   |
 
 Regular `context` solves only the props-drilling problem — it has no structure, rules, or dedicated place in the project. A manager is a composite entity with its own layers and conventions.
 
@@ -119,7 +119,7 @@ export function ReportMng({ children }: { children: ReactNode }) {
   return (
     <ReportContext.Provider value={controller}>
       {children}
-      {controller.isOpen && <ReportModal />}  {/* the manager owns its UI */}
+      {controller.isOpen && <ReportModal />} {/* the manager owns its UI */}
     </ReportContext.Provider>
   );
 }
@@ -133,10 +133,10 @@ If, however, a component is used **by consumers** of the manager, this is a sign
 
 **How to make the decision:**
 
-| Situation | Solution |
-|-----------|----------|
-| UI is rendered by the provider, one call site | Local context or state — manager is excessive |
+| Situation                                          | Solution                                                      |
+| -------------------------------------------------- | ------------------------------------------------------------- |
+| UI is rendered by the provider, one call site      | Local context or state — manager is excessive                 |
 | UI is rendered by the provider, several call sites | Component inside the manager — the provider renders it itself |
-| Component is needed by external consumers | Move it to the `components` layer |
+| Component is needed by external consumers          | Move it to the `components` layer                             |
 
 > **Practical example:** a button in the header calls a manager method → a modal appears. If this is the only call site, local context is simpler and cleaner. If there are two or more such places, a manager with `<ReportModal />` inside the provider becomes the correct choice.

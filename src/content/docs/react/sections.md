@@ -69,7 +69,9 @@ export function FeaturesSct() {
 
   return (
     <section>
-      {features.map(f => <FeatureCard key={f.id} {...f} />)}
+      {features.map((f) => (
+        <FeatureCard key={f.id} {...f} />
+      ))}
     </section>
   );
 }

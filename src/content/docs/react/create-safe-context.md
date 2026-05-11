@@ -40,5 +40,6 @@ With the utility:
 
 ```ts
 // HomePage/context.ts
-export const [HomeContext, useHomeContext] = createSafeContext<THomeContext>('HomeContext');
+export const [HomeContext, useHomeContext] =
+  createSafeContext<THomeContext>('HomeContext');
 ```

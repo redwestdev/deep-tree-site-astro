@@ -20,7 +20,7 @@ Pages divide an application into large independent pieces. Each page is a separa
 ## Exceptions to Page Rules
 
 - A top-level data scope may come into a page (for example, locale, translation dictionary,
-feature-flag config, integration keys), if it concerns the entire screen.
+  feature-flag config, integration keys), if it concerns the entire screen.
 
 ## Page Examples
 

@@ -19,9 +19,9 @@ Importing from a **neighboring branch** is not allowed.
 Ancestor **view** files (`.tsx`) are not an import source for children.
 If you need to pass something down the tree, move it into a separate single entity or file layer next to the view:
 
-| What we share | How to define it |
-|---------------|------------------|
-| Context | `context.ts` — a single entity next to `.tsx` |
+| What we share | How to define it                                   |
+| ------------- | -------------------------------------------------- |
+| Context       | `context.ts` — a single entity next to `.tsx`      |
 | Common styles | `styles.module.scss` — a file layer next to `.tsx` |
 
 ```

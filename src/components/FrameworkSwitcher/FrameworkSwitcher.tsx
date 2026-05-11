@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import s from './styles.module.scss';
 
 type Framework = 'react' | 'vue';
@@ -27,9 +28,9 @@ export default function FrameworkSwitcher({ currentPath }: Props) {
   }
 
   return (
-    <div className={s.wrapper} role="tablist" aria-label="Framework">
+    <div className={s.wrapper} role='tablist' aria-label='Framework'>
       <button
-        role="tab"
+        role='tab'
         aria-selected={active === 'react'}
         onClick={() => switchTo('react')}
         className={`${s.tab} ${active === 'react' ? s['tab--active'] : ''}`}
@@ -37,7 +38,7 @@ export default function FrameworkSwitcher({ currentPath }: Props) {
         React
       </button>
       <button
-        role="tab"
+        role='tab'
         aria-selected={active === 'vue'}
         onClick={() => switchTo('vue')}
         className={`${s.tab} ${active === 'vue' ? s['tab--active'] : ''}`}
