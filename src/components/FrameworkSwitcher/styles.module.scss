@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  background: transparent;
+  color: var(--sl-color-text-accent);
+
+  &--active {
+    background: var(--sl-color-accent);
+    color: var(--sl-color-white);
+  }
+}
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--sl-color-orange-high);
+  color: var(--sl-color-white);
+  line-height: 1.4;
+}

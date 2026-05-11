@@ -1,0 +1,34 @@
+---
+title: Deep Tree
+description: Modular file architecture for scalable frontend applications.
+template: splash
+hero:
+  tagline: Modular file architecture for scalable frontend applications.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Get Started with React
+      link: /react/getting-started/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/redwestdev/deep-tree
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+  <Card title="Modular structure" icon="puzzle">
+    Organize your UI into Pages, Sections, and Components with clear boundaries.
+  </Card>
+  <Card title="Framework agnostic" icon="laptop">
+    The same principles apply to React and Vue — pick your stack.
+  </Card>
+  <Card title="AI-ready" icon="star">
+    Ships `ARCHITECTURE.md` to your project root so AI assistants understand your codebase instantly.
+  </Card>
+  <Card title="SOLID for files" icon="document">
+    Based on SOLID principles adapted for frontend file organization.
+  </Card>
+</CardGrid>
