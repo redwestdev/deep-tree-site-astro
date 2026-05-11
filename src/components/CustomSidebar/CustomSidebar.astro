@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div class={s.switcherWrapper}>
-  <FrameworkSwitcher currentPath={currentPath} client:load />
+  <FrameworkSwitcher currentPath={currentPath} base={import.meta.env.BASE_URL} client:load />
 </div>
 
 <SidebarPersister>

@@ -6,25 +6,28 @@ type Framework = 'react' | 'vue';
 
 interface Props {
   currentPath: string;
+  base?: string;
 }
 
-export default function FrameworkSwitcher({ currentPath }: Props) {
+export default function FrameworkSwitcher({ currentPath, base = '' }: Props) {
+  const basePath = base.replace(/\/$/, '');
+
   const [active, setActive] = useState<Framework>(() =>
-    currentPath.startsWith('/vue') ? 'vue' : 'react'
+    currentPath.includes('/vue') ? 'vue' : 'react'
   );
 
   useEffect(() => {
-    setActive(currentPath.startsWith('/vue') ? 'vue' : 'react');
+    setActive(currentPath.includes('/vue') ? 'vue' : 'react');
   }, [currentPath]);
 
   function switchTo(target: Framework) {
     if (target === active) return;
 
-    const match = currentPath.match(/^\/(react|vue)\/(.*)/);
+    const match = currentPath.match(/\/(react|vue)\/(.*)/);
     const slug = match ? match[2] : '';
 
     // Vue only has index for now — always fall back to /vue/
-    window.location.href = target === 'vue' ? '/vue/' : `/react/${slug}`;
+    window.location.href = target === 'vue' ? `${basePath}/vue/` : `${basePath}/react/${slug}`;
   }
 
   return (
