@@ -3,9 +3,14 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 
+// On GitHub Actions GITHUB_REPOSITORY = "owner/repo-name"
+// Locally it's not set, so base defaults to "/"
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+const base = repoName ? `/${repoName}` : '/';
+
 export default defineConfig({
   site: 'https://redwestdev.github.io',
-  base: '/deep-tree-site-astro',
+  base,
   integrations: [
     starlight({
       title: 'Deep Tree',

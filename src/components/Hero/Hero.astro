@@ -1,0 +1,17 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Hero.astro';
+
+// trailing slash
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const props = Astro.props as Props;
+
+if (props.entry?.data?.hero?.actions) {
+  props.entry.data.hero.actions = props.entry.data.hero.actions.map((action) => ({
+    ...action,
+    link: `${base}${action.link}`,
+  }));
+}
+---
+
+<Default {...props}><slot /></Default>
