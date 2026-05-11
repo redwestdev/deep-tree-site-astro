@@ -17,7 +17,8 @@ export default defineConfig({
         },
       ],
       components: {
-        Sidebar: './src/components/CustomSidebar/CustomSidebar.astro',
+        Sidebar: './src/components/Sidebar/Sidebar.astro',
+        Hero: './src/components/Hero/Hero.astro',
       },
       sidebar: [
         {
